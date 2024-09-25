@@ -9,10 +9,9 @@ import Footer from "../components/footer/Footer";
 const UserPage: React.FC = () => {
   return (
     <Layout>
-      <Layout.Header className="bg-white px-2  h-[76px]">
+      <Layout.Header className="bg-white px-2 !w-full  h-[76px]">
         <Header />
       </Layout.Header>
-
       <Layout.Content>
         <Outlet />
       </Layout.Content>

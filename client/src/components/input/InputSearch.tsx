@@ -12,13 +12,13 @@ const InputSearch: React.FC<SearchProps> = ({ text, onChange }) => {
   return (
     <div className="flex flex-1 justify-center items-center">
       {/* INPUT SEARCH */}
-      <div className="border-solid border-neutral-950 border-2 rounded-md w-[258px]">
-        <div className="flex p-2">
+      <div className="border-none md:border-solid border-neutral-950 border-2 rounded-md md:w-[258px]">
+        <div className="flex p-2 justify-end md:justify-normal">
           <Input
             value={text}
             onChange={onChange}
             placeholder="What do you want to learn"
-            className="remove-border" 
+            className="remove-border hidden md:inline-block " 
           />
           <Button
             className="remove-border"

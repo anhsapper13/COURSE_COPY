@@ -1,64 +1,87 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Image } from "antd";
 import ButtonComponent from "../button/button";
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import { DownOutlined, UpOutlined, MenuOutlined } from "@ant-design/icons";
 import InputSearch from "../input/InputSearch";
 const Header: React.FC = () => {
+  const [isHover, setIsHover] = useState<boolean>(false)
+  //handle hover
+  const handleHover =()=>{
+    setIsHover(true)
+  }
+  const handleBlur =()=>{
+    setIsHover(false)
+  }
+
   return (
     <div>
-      <div className="flex justify-between items-center h-[75px]">
+      <div className="flex justify-between items-center h-[75px] ">
         {/* LEFT */}
-        <div className="flex">
+        <div className="flex justify-between w-full lg:justify-normal">
+          {/* SIDE BAR MOBILE */}
+          <div className="mx-3">
+            <div className="px-5 lg:hidden">
+              {/* INSERT BUTTON HERE */}
+              <ButtonComponent
+                icon={<MenuOutlined style={{ fontSize: "20px" }} />}
+                shape="circle"
+                variant="text"
+                className="hover:!bg-black hover:!text-white"
+              />
+            </div>
+          </div>
           {/* LOGO */}
           <Image src="./src/assets/edx-logo.jpg" width={100} height={64} />
-          {/* SIDE BAR MOBILE */}
-          <div></div>
+
           {/* SIDE BAR DESKTOP */}
-          <div className="flex w-[402px]">
-            <div>
+          <div className="flex lg:w-[402px]">
+            <div className="hidden lg:block">
               <ButtonComponent
                 text={"Learn"}
                 color={"default"}
                 shape={"round"}
                 variant={"solid"}
-                icon={<DownOutlined style={{fontSize:"14px"}}/>}
+                icon={isHover ?<UpOutlined style={{ fontSize: "14px" }} /> :<DownOutlined style={{ fontSize: "14px" }} />}
+                className="!p-5"
+                onHover={useCallback(handleHover,[])}
+                onBlur={useCallback(handleBlur,[])}
               />
             </div>
             <InputSearch text={""} onChange={() => console.log("hi")} />
           </div>
           {/* SEARCH INPUT */}
         </div>
+
         {/* RIGHT */}
-        <div className="flex">
-          {/* EDX FOR BUSSINESS */}
-          <div>
+        <div className="hidden lg:flex">
+          {/* EDX FOR BUSINESS */}
+          <div className="px-3">
             <ButtonComponent
-              text={"edx For Bussiness"}
+              text={"edx For Business"}
               shape={"round"}
               variant={"solid"}
-              className="!bg-white !shadow-none !text-black hover-bg-white"
+              className="!p-5 !text-[#454545] !font-medium !text-sm !bg-white remove-border !text-black hover-bg-white"
             />
           </div>
           {/* AUTH  */}
           <div className="flex">
             {/* REGISTER */}
-            <div>
+            <div className="px-3">
               <ButtonComponent
                 text={"Sign In"}
                 shape={"round"}
                 variant={"solid"}
-                className="!bg-white !shadow-none !text-black hover-bg-white"
+                className="!p-5 !text-[#454545] !font-medium !text-sm !bg-white remove-border !text-black hover-bg-white"
               />
             </div>
-
             {/* LOGIN */}
-            <div>
+            <div className="px-3">
               <ButtonComponent
                 text={"Register for free"}
                 shape={"round"}
                 color="danger"
                 variant={"solid"}
-                className="hover-bg-red"
+                className="!p-5 !text-base hover-bg-red"
               />
             </div>
           </div>
