@@ -12,7 +12,7 @@ const UserPage: React.FC = () => {
       <Layout.Header className="bg-white px-2 !w-full  h-[76px]">
         <Header />
       </Layout.Header>
-      <Layout.Content>
+      <Layout.Content >
         <Outlet />
       </Layout.Content>
       <Layout.Footer>

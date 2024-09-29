@@ -22,15 +22,14 @@ function App() {
         },
         {
           path:"/register",
-          element:<RegisterPage/>,
-            
+          element:<RegisterPage/>, 
         }
       ]
     }
 ])
 
 
-  return <div className='p-1'>
+  return <div className='p-0'>
     {routes}
   </div>
 
