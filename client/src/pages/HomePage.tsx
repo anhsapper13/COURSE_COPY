@@ -3,6 +3,7 @@ import ButtonComponent from "../components/button/button";
 import InputSearch from "../components/input/InputSearch";
 import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import Carousel from "../components/carosual/Carosuel";
 
 const HomePage = () => {
   return (
@@ -53,8 +54,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/*SLIDER 1 */}
-      <div></div>
+      {/*SLIDER 2 */}
+      <div>
+        <Carousel />
+      </div>
       {/*SLIDER 1 */}
       <div></div>
       {/*SLIDER 1 */}
