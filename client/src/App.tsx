@@ -15,6 +15,7 @@ function App() {
         {
           index:true,
           element:<HomePage />,
+         
         },
         {
           path:"/login",

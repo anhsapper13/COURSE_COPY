@@ -1,31 +1,39 @@
-import React from 'react'
-import { DownOutlined } from '@ant-design/icons'
+import React, { useState } from 'react'
 import type { MenuProps } from 'antd'
 import {Dropdown,Space} from "antd"
-import { NavLink } from 'react-router-dom'
+import ButtonComponent from '../button/button'
+import { DownOutlined } from '@ant-design/icons'
 
-const items:MenuProps["items"] = [
-    {
-        label: <NavLink to={"/sharpen-skill"}>Sharpen your skills</NavLink>,
-        key:"0"
-    },
-    {
-        label: <NavLink to={"/change-careers"}></NavLink>,
-        key:"0"
-    },
-    {
-        label: <NavLink to={"/sharpen-skill"}>Sharpen your skills</NavLink>,
-        key:"0"
-    },
-    {
-        label: <NavLink to={"/sharpen-skill"}>Sharpen your skills</NavLink>,
-        key:"0"
-    },
-]
 
-const DropDown = () => {
+const DropDown  = () => {
+    const [selectedDropdown, setSelectedDropDown] = useState<string>("Sharpen your skills")
+    const handleClick : MenuProps["onClick"] = (e)=>{
+        setSelectedDropDown(e.key)
+    }
+    const items:MenuProps["items"] = [
+        {
+            label:"Sharpen your skills",
+            key:"Sharpen your skills",
+        },
+        {
+            label: "Change careers",
+            key:"Change careers"
+        },
+        {
+            label:"Level up as a leader",
+            key:"Level up as a leader"
+        },
+        {
+            label:"Earn a degree",
+            key:"Earn a degree"
+        },
+    ]
   return (
-    <div>DropDown</div>
+   <Dropdown menu={{items, onClick:handleClick}} trigger={['click']}  >
+    <a onClick={(e)=> e.preventDefault()}>
+        <ButtonComponent text={selectedDropdown} className='!text-white !py-4 !font-medium !text-sm rounded-none !remove-border !w-full !bg-[#1F453D]' icon={<DownOutlined/>} />
+    </a>
+   </Dropdown>
   )
 }
 

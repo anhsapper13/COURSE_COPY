@@ -53,4 +53,8 @@
   .link-primary {
     @apply underline hover:underline hover:decoration-[3px] hover:text-inherit;
   }
+  .bg-primary {
+    background-color: #1F453D;
+  }
+  
 }

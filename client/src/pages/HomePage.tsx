@@ -3,6 +3,7 @@ import ButtonComponent from "../components/button/button";
 import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import Carousel from "../components/carosual/Carosuel";
+import DropDown from "../components/dropdown/DropDown";
 
 const HomePage = () => {
   return (
@@ -59,6 +60,8 @@ const HomePage = () => {
       </div>
       {/*SLIDER 3 */}
       <div className="flex justify-center items-center px-4 py-10 md:px-10 md:py-16">
+        <div>
+
         {/* HEADER SLIDE 3 */}
         <div className="flex flex-col pb-8 lg:flex-row">
             <h2 className="basic-1/2 italic font-extrabold mr-8 mb-4 lg:text-6xl lg:w-1/2">
@@ -70,9 +73,10 @@ const HomePage = () => {
         </div>
         {/* CONTENTS SLIDE 3 */}
         <div>
-          
+          <DropDown />
         </div>
         
+        </div>
       </div>
       {/*SLIDER 1 */}
       <div></div>
