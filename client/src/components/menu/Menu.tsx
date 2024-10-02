@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const CustomArrow = () => {
+const Menu = () => {
   return (
     <div>
         
     </div>
   )
 }
+
+export default Menu

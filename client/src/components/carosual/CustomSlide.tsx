@@ -9,8 +9,10 @@ const CustomSlide: React.FC<CustomSlide> = ({ className, imageSlide }) => {
     <div className={className}>
       <img 
       src={imageSlide}
-      className="mx-6 w-28 h-16 md:w-52 md:h-24"
+      className="my-6 w-[201px] h-[101px] md:w-[164px] md:h-[83px] lg:w-[130px] lg:h-[70px]"
+      style={{backgroundColor:"transparent"}}
       />
+      
     </div>
   );
 };
