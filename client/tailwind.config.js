@@ -1,9 +1,11 @@
+
 /** @type {import('tailwindcss').Config} */
+const createTransformer = require("tailwind-group-variant");
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: {
+    files: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    transform:createTransformer()
+  },
   // corePlugins: {
   //   preflight: false,
   // },
@@ -11,4 +13,4 @@ export default {
     extend: {},
   },
   plugins: [],
-}
+};

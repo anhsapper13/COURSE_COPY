@@ -3,7 +3,9 @@ import ButtonComponent from "../components/button/button";
 import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import Carousel from "../components/carosual/Carosuel";
-import DropDown from "../components/dropdown/DropDown";
+import Slider3 from "../components/slider3/Slider3";
+import PopularTopic from "../components/slider5/PopularTopic";
+// import DropDown from "../components/dropdown/DropDown";
 
 const HomePage = () => {
   return (
@@ -60,26 +62,32 @@ const HomePage = () => {
       </div>
       {/*SLIDER 3 */}
       <div className="flex justify-center items-center px-4 py-10 md:px-10 md:py-16">
-        <div>
-
-        {/* HEADER SLIDE 3 */}
-        <div className="flex flex-col pb-8 lg:flex-row">
+        <div className="">
+          {/* HEADER SLIDE 3 */}
+          <div className="flex flex-col pb-8 mb-5 lg:flex-row ">
             <h2 className="basic-1/2 italic font-extrabold mr-8 mb-4 lg:text-6xl lg:w-1/2">
-            You set the goal. We'll mark the path.
+              You set the goal. We'll mark the path.
             </h2>
             <p className="basic-1/2 mb-4 text-xl lg:w-1/2 lg:mt-2 lg:mb-4">
-            Career progress isn't always linear. So when your industry evolves or your plans change, edX is the education destination that works as hard as you. Explore thousands of job-relevant online courses that empower you to ramp up, reroute, or start fresh. We'll be with you every step of the way.
+              Career progress isn't always linear. So when your industry evolves
+              or your plans change, edX is the education destination that works
+              as hard as you. Explore thousands of job-relevant online courses
+              that empower you to ramp up, reroute, or start fresh. We'll be
+              with you every step of the way.
             </p>
-        </div>
-        {/* CONTENTS SLIDE 3 */}
-        <div>
-          <DropDown />
-        </div>
-        
+          </div>
+          {/* CONTENTS SLIDE 3 */}
+          <div>
+            {/* <DropDown /> */}
+            <Slider3 />
+          </div>
         </div>
       </div>
-      {/*SLIDER 1 */}
-      <div></div>
+
+      {/*SLIDER 5 */}
+      <div className="bg-white">
+        <PopularTopic/>
+      </div>
       {/*SLIDER 1 */}
       <div></div>
       {/*SLIDER 1 */}

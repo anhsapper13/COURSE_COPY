@@ -3,7 +3,9 @@ import { Image } from "antd";
 import ButtonComponent from "../button/button";
 import { DownOutlined, UpOutlined, MenuOutlined } from "@ant-design/icons";
 import InputSearch from "../input/InputSearch";
+import { useNavigate } from "react-router-dom";
 const Header: React.FC = () => {
+  const naviagte = useNavigate()
   const [isHover, setIsHover] = useState<boolean>(false)
   //handle hover
   const handleHover =()=>{
@@ -12,7 +14,12 @@ const Header: React.FC = () => {
   const handleBlur =()=>{
     setIsHover(false)
   }
-
+  const handleLogin = () =>{
+    naviagte("/auth/login")
+  }
+  const handleRegister = () =>{
+    naviagte("/auth/register")
+  }
   return (
     <div>
       <div className="flex justify-between items-center h-[75px] ">
@@ -72,6 +79,7 @@ const Header: React.FC = () => {
                 shape={"round"}
                 variant={"solid"}
                 className="!p-5 !text-[#454545] !font-medium !text-sm !bg-white remove-border !text-black hover-bg-white"
+                onclick={handleRegister}
               />
             </div>
             {/* LOGIN */}
@@ -82,6 +90,7 @@ const Header: React.FC = () => {
                 color="danger"
                 variant={"solid"}
                 className="!p-5 !text-base hover-bg-red"
+                onclick={handleLogin}
               />
             </div>
           </div>

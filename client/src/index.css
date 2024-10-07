@@ -17,10 +17,13 @@
   h3 {
     @apply text-2xl;
   }
-  h2{
+  h2 {
     @apply text-5xl;
   }
-  p{
+  h4 {
+    @apply text-xl;
+  }
+  p {
     color: #454545;
   }
 }
@@ -31,7 +34,7 @@
 @layer components {
   /* hover when background is red */
   .hover-bg-red {
-    @apply hover:bg-white hover:outline hover:outline-red-500 hover:outline-2 hover:text-red-500 !important;
+    @apply hover:bg-white hover:outline hover:outline-red-500 hover:outline-2 hover:text-red-500 hover:transition-none !important;
   }
   /* hover when background is white */
   .hover-bg-white {
@@ -47,14 +50,21 @@
   .remove-border {
     @apply border-none shadow-none !important;
   }
-  /* .primary-font-color{
-            color:#454545 !important
-        } */
   .link-primary {
     @apply underline hover:underline hover:decoration-[3px] hover:text-inherit;
   }
   .bg-primary {
-    background-color: #1F453D;
+    background-color: #1f453d;
   }
-  
+  .ant-card-body {
+    position: relative !important;
+  }
+  .bg-gradient-sm {
+    background: linear-gradient(102deg, #921108, #921108 20%, #d23228 0);
+  }
+  .bg-gradient-md {
+    background: linear-gradient(102.02deg, #921108, #921108 10%, #d23228 0, #d23228 90%, #002121 0, #002121);
+  } 
+
+
 }

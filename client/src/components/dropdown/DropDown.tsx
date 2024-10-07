@@ -1,40 +1,66 @@
-import React, { useState } from 'react'
-import type { MenuProps } from 'antd'
-import {Dropdown,Space} from "antd"
-import ButtonComponent from '../button/button'
-import { DownOutlined } from '@ant-design/icons'
+import React, { useEffect, useState } from "react";
+import type { MenuProps } from "antd";
+import { Button, Dropdown, Menu } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 
-
-const DropDown  = () => {
-    const [selectedDropdown, setSelectedDropDown] = useState<string>("Sharpen your skills")
-    const handleClick : MenuProps["onClick"] = (e)=>{
-        setSelectedDropDown(e.key)
-    }
-    const items:MenuProps["items"] = [
-        {
-            label:"Sharpen your skills",
-            key:"Sharpen your skills",
-        },
-        {
-            label: "Change careers",
-            key:"Change careers"
-        },
-        {
-            label:"Level up as a leader",
-            key:"Level up as a leader"
-        },
-        {
-            label:"Earn a degree",
-            key:"Earn a degree"
-        },
-    ]
-  return (
-   <Dropdown menu={{items, onClick:handleClick}} trigger={['click']}  >
-    <a onClick={(e)=> e.preventDefault()}>
-        <ButtonComponent text={selectedDropdown} className='!text-white !py-4 !font-medium !text-sm rounded-none !remove-border !w-full !bg-[#1F453D]' icon={<DownOutlined/>} />
-    </a>
-   </Dropdown>
-  )
+interface DropDownProps {
+  items: MenuProps["items"];
+  handleClick: MenuProps["onClick"];
+  selectedDropdown: string;
+  selectedSection: JSX.Element;
 }
 
-export default DropDown
+const DropDown: React.FC<DropDownProps> = ({
+  items,
+  handleClick,
+  selectedDropdown,
+  selectedSection,
+}) => {
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <div>
+      {windowSize >= 1024 ? (
+        <div>
+          <Menu
+            onClick={handleClick}
+            mode="horizontal"
+            selectedKeys={[selectedDropdown]}
+            defaultSelectedKeys={["Sharpen your skills"]} // Default selected key
+            items={items}
+            className="!border !border-solid !border-slate-100 !rounded-tr-xl rounded-tl-xl py-2.5"
+          />
+          <div>{selectedSection}</div>
+        </div>
+      ) : (
+        <div>
+          {/* Dropdown */}
+          <Dropdown menu={{ items, onClick: handleClick }} trigger={["click"]}>
+            <a className="!py-4" onClick={(e) => e.preventDefault()}>
+              <Button className="!text-white !py-7 !font-light !text-base rounded-none !remove-border !w-full !bg-[#1F453D] md:text-medium md:!text-xl md:justify-between">
+                <span>{selectedDropdown as string}</span>
+                <span>
+                  <DownOutlined />
+                </span>
+              </Button>
+            </a>
+          </Dropdown>
+          {/* Description */}
+          <div>{selectedSection}</div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default DropDown;

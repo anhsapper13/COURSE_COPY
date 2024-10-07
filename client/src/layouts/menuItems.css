@@ -1,0 +1,4 @@
+.ant-menu-item-selected::after {
+  border-color: #454545 !important;
+}
+
